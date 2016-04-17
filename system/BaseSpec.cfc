@@ -555,10 +555,9 @@ component{
 			){
 				// setup the current executing spec for debug purposes
 				this.$currentExecutingSpec = arguments.suite.slug & "/" & arguments.suite.name & "/" & arguments.spec.name;
-				// Run beforeEach closures
-				runBeforeEachClosures( arguments.suite, arguments.spec );
 
 				try{
+					runBeforeEachClosures( arguments.suite, arguments.spec );
 					runAroundEachClosures( arguments.suite, arguments.spec );
 				} catch( any e ){
 					rethrow;
